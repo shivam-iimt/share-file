@@ -1,0 +1,206 @@
+body,
+html {
+  font-family: system-ui;
+  background-color: rgb(197, 197, 197);
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+body,
+.drop-zone,
+.upload-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.drop-zone {
+  width: 500px;
+  min-height: 200px;
+  border: 5px dashed rgb(255, 166, 0);
+  margin: 30px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+.upload-container {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.icon-container {
+  width: 75px;
+  height: 100px;
+  position: relative;
+}
+.icon-container img {
+  width: 75px;
+  position: absolute;
+  transform-origin: bottom;
+  transition: transform 250ms ease-in-out;
+}
+.icon-container .center {
+  z-index: 2;
+}
+.dragged.drop-zone {
+  background-color: rgb(236, 236, 236);
+}
+.dragged .icon-container .right {
+  transform: rotate(10deg) translateX(20px);
+}
+.dragged .icon-container .left {
+  transform: rotate(-10deg) translateX(-20px);
+}
+.dragged .icon-container .center {
+  transform: translateY(-5px);
+}
+.icon-container .right,
+.icon-container .left {
+  filter: grayscale(0.7);
+  transform: scale(0.9);
+}
+#fileinput {
+  display: none;
+}
+.browsebtn {
+  color: rgb(255, 166, 0);
+  font-weight: bold;
+  cursor: pointer;
+}
+.progress-container {
+  background: hsl(0, 0%, 100%);
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  width: 500px;
+  height: 70px;
+  border: 20x solid black;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  position: relative;
+  display: none;
+}
+.progress-container .bg-progress {
+  background-color: rgb(197, 197, 197);
+  border-radius: 2%;
+  width: 1%;
+  height: 100%;
+  transition: width 0.25s linear;
+  transform-origin: left;
+  position: absolute;
+}
+.progress-container .inner-container {
+  position: absolute;
+  z-index: 1;
+  margin: 10px 15px;
+  width: calc(100% - 30px);
+}
+.percent-container {
+  font-size: 15px;
+  opacity: 0.8;
+  margin: 5px;
+}
+.progress-bar {
+  height: 3px;
+  width: 100%;
+  background-color: rgb(255, 166, 0);
+  border-radius: 2px;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.25s linear;
+}
+.sharing-container {
+  width: 500px;
+  margin-bottom: 30px;
+  display: none;
+}
+p {
+  opacity: 0.7;
+  text-align: center;
+}
+.sharing-container .input-container {
+  position: relative;
+}
+.sharing-container .input-container input {
+  width: 500px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  border-radius: 10px;
+  padding: 10px 5px;
+  box-sizing: border-box;
+  font-size: 20px;
+  color: grey;
+  /* outline: none; */
+}
+
+.input-container i {
+  position: absolute;
+  height: 22px;
+  right: 7px;
+  top: 12px;
+  color: rgb(0, 192, 16);
+  font-size: 22px;
+}
+
+.email-container {
+  display: flex;
+  align-items: center;
+}
+.email-container form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  border: 2px dashed rgb(255, 166, 0);
+  border-radius: 10px;
+  padding: 15px;
+}
+.email-container .field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  width: 400px;
+}
+.email-container label {
+  font-size: 18px;
+}
+.email-container input {
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid rgb(255, 166, 0);
+  text-align: center;
+}
+.email-container button {
+  font-size: 18px;
+  padding: 8px 14px;
+  margin: 15px;
+  background-color: rgb(197, 197, 197);
+  border: none;
+  border-radius: 5px;
+  color: rgb(26, 26, 26);
+}
+.email-container button:hover {
+  background-color: grey;
+  color: white;
+}
+.email-container button:active {
+  color: rgb(255, 166, 0);
+}
+.toast {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, 60px);
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: rgb(255, 166, 0);
+  color: white;
+  font-size: 18px;
+  transition: transform ease-in-out 0.2s;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
